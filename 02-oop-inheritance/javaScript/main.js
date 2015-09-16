@@ -7,10 +7,12 @@ function MovieObserver() {
     console.log('A movie with title ' + title + ' stopped');
   } 
 }
+
 function Movie() {
   this.atributes = new Array();
   this.observer = new MovieObserver();
-}
+}//end constructor
+
 Movie.prototype = {
   constructor: Movie,
   get:function(atribute) {
@@ -30,7 +32,6 @@ Movie.prototype = {
   stop:function(){
     this.observer.stopped(this.atributes['title']);
   }//end stop
-
 
 }// end Movie.prototype
 
