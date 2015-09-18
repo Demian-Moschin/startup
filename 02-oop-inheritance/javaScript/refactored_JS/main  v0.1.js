@@ -5,7 +5,7 @@ var movieObserver = function () {
   this.stopped = function( title ) {
     console.log('A movie with title ' + title + ' stopped');
   } 
-}
+}//end movieObserver
 
 
 var movie = function (paramName, paramValue ) {
@@ -27,15 +27,10 @@ var movie = function (paramName, paramValue ) {
   this.stop = function () {
       this.observer.stopped(this.attributes['title']);
   }
-}
+}//end movie
 
 var movie1 = new movie('title', 'ironMan');
 movie1.get('title');
-
 movie1.set('mainActor', 'Al Pacino');
 movie1.get('mainActor');
 movie1.play()
-
-
-
-

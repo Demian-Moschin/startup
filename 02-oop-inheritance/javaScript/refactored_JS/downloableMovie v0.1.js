@@ -77,13 +77,11 @@ Social.prototype = {
     }//end like
 }//end Social
 
-
+//use of Mixin function
 augment(movie,Social);
 
-
 var mov = new movie('title', 'Pirates of the Sillicon Valley');
-
-
 var downMovie = new  downloableMovie('title', 'Online: Batman of the Future');
+
 console.log(downMovie.attributes.title);
 mov.share('Gaston')
