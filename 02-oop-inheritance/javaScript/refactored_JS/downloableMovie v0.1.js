@@ -6,37 +6,39 @@ MovieObserver.prototype.stopped = function( title ) {
     console.log('A movie with title ' + title + ' stopped');
 };
 
-var Movie = function ( paramName, paramValue ) {
+var Movie = function (paramName, paramValue) {
   //Variables
   this.attributes = [];
   this.attributes[paramName] = paramValue; 
-  this.observer = new MovieObserver();
+  
 };//end movie constructor
 
 Movie.prototype = {
+
+  observer : new MovieObserver(), 
   
-  get: function (atribute) {
+  get : function (atribute) {
      return this.attributes[atribute];
   }, 
 
-  set:function (atribute, value) {
+  set :function (atribute, value) {
     this.attributes[atribute] = value;
       
   },
 
-  play:function () {
+  play :function () {
     console.log('This is Movie.play method: I am a movie. This is my title: ' + this.attributes['title']);
     this.observer.playing(this.attributes['title']);
   },
 
-  stop:function () {
+  stop :function () {
     this.observer.stopped(this.attributes['title']);
   }
 
 };
 
-var DownloableMovie  = function ( paramName, paramValue ) {
-  Movie.call(this, paramName,paramValue);
+var DownloableMovie  = function (paramName, paramValue) {
+  Movie.call(this, paramName, paramValue);
 };
 
 var inheritPrototype = function (paramParentObject, paramChildObject ) {
@@ -54,7 +56,7 @@ inheritPrototype(Movie,DownloableMovie);
 *This function is courtesy of Addy Osmani
 * From the book JavaScript Design Patterns
 */
-var augment= function ( receivingClass, givingClass ) {
+var augment = function (receivingClass, givingClass) {
   // only provide certain methods
   if ( arguments[2] ) {
     for (var i=2, len=arguments.length; i<len; i++) {
@@ -67,7 +69,7 @@ var augment= function ( receivingClass, givingClass ) {
       /* check to make sure the receiving class doesn't
       have a method of the same name as the one currently
       being processed */
-      if ( !receivingClass.prototype[methodName] ) {
+      if (!receivingClass.prototype[methodName]) {
         receivingClass.prototype[methodName] = givingClass.prototype[methodName];
       }
     }
@@ -75,7 +77,7 @@ var augment= function ( receivingClass, givingClass ) {
 };
 
 //Mixin Object() 
-var Social = function(){};
+var Social = function() {};
 Social.prototype = {
     share: function (friendName){
       return 'Sharing : ' + this.attributes.title + ' with ' + friendName; 
@@ -85,10 +87,13 @@ Social.prototype = {
 };
 
 //use of Mixin function
-augment(Movie,Social);
+augment(Movie, Social);
 
-var mov = new Movie('title', 'Pirates of the Sillicon Valley');
-var downMovie = new  DownloableMovie('title', 'Online: Batman of the Future');
-downMovie.set('duration','6 hours');
-console.log(downMovie.attributes.title);
-mov.share('Gaston')
+var movie = new Movie('title', 'Pirates of the Sillicon Valley');
+var downloableMovie = new  DownloableMovie('title', 'Online: Batman of the Future');
+downloableMovie.set('duration', '6 hours');
+downloableMovie.attributes.title;
+movie.share('Gaston');
+movie.set('mainActor', 'Marlon Brando');
+movie.attributes.mainActor;
+downloableMovie.attributes.duration;
