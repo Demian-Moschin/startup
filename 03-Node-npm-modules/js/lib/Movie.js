@@ -1,5 +1,6 @@
 //------------------------------- Imported    Modules//
 var Director = require('./Director.js').Director;
+var $ = require('./jquery.js').$;
 //-------------------------------------------------//
 
 
