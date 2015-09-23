@@ -1,13 +1,23 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var Director = function () {};
-Director.prototype.contructor = Director;
-Director.prototype.setName = function (name) {
-	this.name = name;
-};
-Director.prototype.getCompleteName = function () {
-	console.log('The name of director is ..: ' + this.name);
+var Director = function (name) {
+    this.name = name;
+    this.quotes = [];
 };
 
+Director.prototype = {
+  contructor : Director, 
+  get : function (property) {
+    return this[property];
+  }, 
+  set :function (property, value) {
+    this[property] = value; ;
+  },
+  speak : function () {
+    var sentence = '';
+    sentence = this.quotes.join(',')
+    console.log(this.name + ' says :' + sentence);
+  }
+};
 
 exports.Director = Director;
 },{}],2:[function(require,module,exports){
@@ -15,7 +25,6 @@ exports.Director = Director;
 var Director = require('./Director.js').Director;
 var $ = require('./jquery.js').$;
 //-------------------------------------------------//
-
 
 var MovieObserver = function ( ) {};
 MovieObserver.prototype.playing = function (title) {
@@ -25,58 +34,35 @@ MovieObserver.prototype.stopped = function(title) {
     console.log('A movie with title ' + title + ' stopped');
 };
 
-
-var Movie = function (optParams) {
-  this.title = optParams.title;
-  this.duration = optParams.duration; 
-  this.director = new Director();
+var Movie = function (title) {
+  this.title = title;
+  this.duration = ''; 
+  this.director = new Director('');
   this.observer = new MovieObserver();
 };
 
 Movie.prototype = {
   constructor : Movie,
-  setDirectorName : function (directorName) {
-    this.director.setName(directorName);
-  },
-  getDirectorName : function () {
-    this.director.getCompleteName();
-  },
-
-  getTitle : function () {
-    console.log('Movie title ...:' + this.title);
+  get : function (property) {
+    return this[property];
   }, 
-
-  setTitle :function (title) {
-    this.title = title;
-      
-  },
-  getDuration : function () {
-    console.log(this.duration);
-  }, 
-
-  setDuration :function (argDuration) {
-    this.duration = argDuration ;
-  },
-  getDirector : function () {
-    console.log(this.director);
-  }, 
-  setDirector :function (argDirector) {
-    this.director = argDirector ;
+  set :function (property, value) {
+    this[property] = value; ;
   },
   play :function () {
     console.log('This is Movie.play method: I am a movie. This is my title: ' + this.title);
     this.observer.playing(this.title);
   },
-
   stop :function () {
     this.observer.stopped(this.title);
   }
 };
 
-var movie = new Movie({title:'Godzila'});
-movie.setDirectorName('John Rambo');
-movie.getDirectorName();
-movie.getTitle();
+var alien = new Movie('Alien');
+var ridleyScott = new Director('Ridley Scott');
+ridleyScott.set('quotes', ['Cast is everything.', 'Do what ...']);
+alien.set('Director', ridleyScott);
+alien.get('Director').speak(); //output: Ridley Scott says: 'Cast is...'
 },{"./Director.js":1,"./jquery.js":3}],3:[function(require,module,exports){
 $ = require('jquery');
 
