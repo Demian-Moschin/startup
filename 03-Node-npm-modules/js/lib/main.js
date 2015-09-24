@@ -10,21 +10,24 @@ Director.prototype = {
     return this[property];
   }, 
   set :function (property, value) {
-    this[property] = value; ;
+    this[property] = value; 
   },
   speak : function () {
     var sentence = '';
-    sentence = this.quotes.join(',')
-    console.log(this.name + ' says :' + sentence);
+    sentence = this.quotes.join(',');
+    return sentence;
+    // console.log(this.name + ' says :' + sentence);
   }
 };
 
-exports.Director = Director;
+module.exports = Director;
 },{}],2:[function(require,module,exports){
-//------------------------------- Imported    Modules//
-var Director = require('./Director.js').Director;
-var $ = require('./jquery.js').$;
-//-------------------------------------------------//
+//LIBS
+
+var Director = require('./director.js');
+var $ = require('jquery');
+
+//FUNCTIONS
 
 var MovieObserver = function ( ) {};
 MovieObserver.prototype.playing = function (title) {
@@ -47,7 +50,7 @@ Movie.prototype = {
     return this[property];
   }, 
   set :function (property, value) {
-    this[property] = value; ;
+    this[property] = value; 
   },
   play :function () {
     console.log('This is Movie.play method: I am a movie. This is my title: ' + this.title);
@@ -62,18 +65,15 @@ var alien = new Movie('Alien');
 var ridleyScott = new Director('Ridley Scott');
 ridleyScott.set('quotes', ['Cast is everything.', 'Do what ...']);
 alien.set('Director', ridleyScott);
-alien.get('Director').speak(); //output: Ridley Scott says: 'Cast is...'
-},{"./Director.js":1,"./jquery.js":3}],3:[function(require,module,exports){
-$ = require('jquery');
+console.log(alien.get('Director').speak());//output: Ridley Scott says: 'Cast is...'
 
 $(document).ready(function() {
  
-    alert('Libraries working!');
+  $("article").append(alien.get('Director').speak());
  
 });
 
-exports.$ = $;
-},{"jquery":4}],4:[function(require,module,exports){
+},{"./director.js":1,"jquery":3}],3:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/

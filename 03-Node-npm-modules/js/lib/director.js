@@ -9,13 +9,14 @@ Director.prototype = {
     return this[property];
   }, 
   set :function (property, value) {
-    this[property] = value; ;
+    this[property] = value; 
   },
   speak : function () {
     var sentence = '';
-    sentence = this.quotes.join(',')
-    console.log(this.name + ' says :' + sentence);
+    sentence = this.quotes.join(',');
+    return sentence;
+    // console.log(this.name + ' says :' + sentence);
   }
 };
 
-exports.Director = Director;
+module.exports = Director;
