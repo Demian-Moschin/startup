@@ -1,0 +1,30 @@
+
+var React = require('react');
+var Router = require('react-router');
+var RouteHandler = Router.RouteHandler;
+
+
+var MovieNewView = require('./movie-new-view');
+var MovieListView = require('./movie-list-view');
+
+var Main = React.createClass({
+
+    render: function () {
+        return (
+            <div>
+                <h1>This is the main title </h1>
+                <div className="row" >
+                    <div className="col-md-6">
+                      <MovieListView />
+                    </div>
+                    <div className="col-md-6">
+                      <MovieListView />
+                    </div>
+                </div>
+            </div>
+        )
+    };
+
+});
+
+module.exports = Main;
