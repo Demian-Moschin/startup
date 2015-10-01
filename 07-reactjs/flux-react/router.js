@@ -2,17 +2,19 @@ module.exports = (function () {
     var React = require('react');
     var Router = require('react-router');
     var Route = Router.Route;
-    var DefaultRoute = Router.DefaultRoute;
-    var Redirect = Router.Redirect;
 
-    var MainView = require('./views/main-view');
-    
+    var MainView = require('./components/main-view');
+    var MovieList = require('./components/movie-list-view');
+    var MovieNew = require('./components/movie-new-view');
 
     var ModuleRouter = function () {
         this.routes = (
-            <Route handler={MainView} />
+          <Route name="Main" handler={MainView} path="/">
+            <Route name="MovieList" handler={MovieList} path="/MovieList"></Route>
+            <Route name="MovieNew" handler={MovieNew} path="/MovieNew"></Route>
+          </Route>
               
-        )
+        );
     };
 
     ModuleRouter.prototype.run = function (mountElement) {
@@ -20,6 +22,5 @@ module.exports = (function () {
             React.render(<Root />, mountElement);
         });
     };
-
     return new ModuleRouter();
 })();

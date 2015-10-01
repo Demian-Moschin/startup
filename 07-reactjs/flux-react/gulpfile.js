@@ -8,14 +8,14 @@ var run = require('run-sequence');
 var sass = require('gulp-sass');
 var source = require('vinyl-source-stream');
 
-gulp.task('sass', function () {
+/*gulp.task('sass', function () {
     var bundle = gulp.src('./sass/main.scss').pipe(sass()).on('error', function (error) {
         console.log(error);
         this.emit('end');
     });
 
     return bundle.pipe(concat('style.css')).pipe(gulp.dest('build/css/'));
-});
+});*/
 
 gulp.task('js', function () {
     var bundle = browserify('./index.js').transform(reactify).bundle().on('error', function (error) {
@@ -37,7 +37,7 @@ gulp.task('html', function () {
 
 gulp.task('browser-sync', function () {
     browserSync.init({
-    	open: false,
+        open: false,
         server: {
             baseDir: 'build/'
         },
@@ -55,11 +55,11 @@ gulp.task('browser-sync', function () {
     ], ['html', browserSync.reload]);
     gulp.watch([
         'components/**/*.scss',
-        'sass/**/*.scss',
+        //'sass/**/*.scss',
         'views/**/*.scss'
     ], ['sass', browserSync.reload]);
 });
 
 gulp.task('default', function (cb) {
-    run('html', 'sass', 'js', 'browser-sync', cb);
+    run('html', 'js', 'browser-sync', cb);
 });
