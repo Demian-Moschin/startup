@@ -5,7 +5,6 @@ var MovieList = React.createClass({
       return (
         <div>
           <h2>Movie lists</h2>
-          <Route />
         </div>
       )
   }

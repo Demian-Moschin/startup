@@ -10,11 +10,12 @@ var MainView = React.createClass({
           <h1>Main page</h1>
           <div className="navbar navbar-inverse">
             <ul className="nav navbar-nav">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/MovieList">MovieList</Link></li>
-              <li><Link to="/MovieNew">MovieNew</Link></li>
+              <li><Link to="home">Home</Link></li>
+              <li><Link to="list">MovieList</Link></li>
+              <li><Link to="new">MovieNew</Link></li>
             </ul>
           </div>
+           <RouteHandler/>
         </div>
       )
   }

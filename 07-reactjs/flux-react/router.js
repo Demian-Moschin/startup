@@ -9,11 +9,11 @@ module.exports = (function () {
 
     var ModuleRouter = function () {
         this.routes = (
-          <Route name="Main" handler={MainView} path="/">
-            <Route name="MovieList" handler={MovieList} path="/MovieList"></Route>
-            <Route name="MovieNew" handler={MovieNew} path="/MovieNew"></Route>
+          <Route handler={MainView} path="/" name="home">
+            <Route name="list" handler={MovieList} path="/MovieList"></Route>
+            <Route name="new" handler={MovieNew} path="/MovieNew"></Route>
           </Route>
-              
+
         );
     };
 
@@ -24,3 +24,4 @@ module.exports = (function () {
     };
     return new ModuleRouter();
 })();
+
