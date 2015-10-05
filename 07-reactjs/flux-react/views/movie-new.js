@@ -1,3 +1,4 @@
+var ButtonComponent = require('./components/button');
 var React = require('react');
 
 var NewMovie = React.createClass({
@@ -14,37 +15,37 @@ var NewMovie = React.createClass({
 
   getInputProps: function () {
     return {
-        className: 'form-control',
-        type: 'text',
-        value: this.value
+      className: 'form-control',
+      type: 'text',
+      value: this.value
     }
   },
 
   getFormProps: function () {
     return {
-        className: 'navbar-form navbar-left',
-        onSubmit: this.formSubmit
+      className: 'navbar-form navbar-left',
+      onSubmit: this.formSubmit
     }
   },
 
-  formSubmit: function () {
+  formSubmit: function (event) {
+    event.preventDefault();
     this.save();
   },
 
   render: function () {
-      return (
-        <div>
-          <h2>New Movies</h2>
-          <form {...this.getFormProps()}>
-            <div className="form-group">
-              <input {...this.getInputProps()} id="inputTextMovieName" placeholder="Movie name" />
-              <input {...this.getInputProps()} id="inputTextMovieDirector" placeholder="Director" />
-              <input {...this.getInputProps()} id="inputTextMovieDuration" placeholder="Duration" />
-            </div>
-            <button type="submit" className="btn btn-default" onClick={this.save}>Create Movie</button>
-          </form>
-        </div>
-      );
+    return (
+      <div>
+        <h2>New Movies</h2>
+        <form {...this.getFormProps()}>
+          <div className="form-group">
+            <input {...this.getInputProps()} id="inputTextMovieName" placeholder="Movie name" />
+            <input {...this.getInputProps()} id="inputTextMovieDirector" placeholder="Director" />
+            <input {...this.getInputProps()} id="inputTextMovieDuration" placeholder="Duration" />
+          </div>
+        </form>
+      </div>
+    );
   }
 });
 

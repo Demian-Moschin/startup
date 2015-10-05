@@ -1,5 +1,5 @@
 var React = require('react');
-var MovieListComponent = require('./components/movie-list');
+//var MovieListComponent = require('./components/movie-list');
 
 var MovieListView= React.createClass({
   
@@ -14,7 +14,7 @@ var MovieListView= React.createClass({
 
   renderList: function () {
     return (
-      <MovieList  />
+      true//<MovieList  />
     );
   }
 
