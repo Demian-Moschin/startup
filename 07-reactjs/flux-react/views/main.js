@@ -4,6 +4,7 @@ var RouteHandler = Router.RouteHandler ;
 var Link = Router.Link;
 
 var MainView = React.createClass({
+
   render: function () {
       return (
         <div>
@@ -15,9 +16,10 @@ var MainView = React.createClass({
               <li><Link to="new">MovieNew</Link></li>
             </ul>
           </div>
-           <RouteHandler/>
+          <RouteHandler/>
         </div>
       )
   }
 });
+
 module.exports = MainView;

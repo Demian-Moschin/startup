@@ -3,15 +3,15 @@ module.exports = (function () {
     var Router = require('react-router');
     var Route = Router.Route;
 
-    var MainView = require('./components/main-view');
-    var MovieList = require('./components/movie-list-view');
-    var MovieNew = require('./components/movie-new-view');
+    var MainView = require('./views/main');
+    var MovieList = require('./views/movie-list');
+    var MovieNew = require('./views/movie-new');
 
     var ModuleRouter = function () {
         this.routes = (
           <Route handler={MainView} path="/" name="home">
-            <Route name="list" handler={MovieList} path="/MovieList"></Route>
-            <Route name="new" handler={MovieNew} path="/MovieNew"></Route>
+            <Route name="list" handler={MovieList} path="/list"></Route>
+            <Route name="new" handler={MovieNew} path="/new"></Route>
           </Route>
 
         );
@@ -24,4 +24,3 @@ module.exports = (function () {
     };
     return new ModuleRouter();
 })();
-

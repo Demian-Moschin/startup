@@ -15,33 +15,53 @@ MovieStore.prototype.getInitialState = function () {
   };
 };
 
-MovieStore.prototype.addMovie = function(movie) {
+MovieStore.prototype.addMovie = function (movie) {
   _movies.list.push(movie);
 };
 
-MovieStore.prototype.removeMovie = function(index) {
+MovieStore.prototype.removeMovie = function (index) {
   _movies.list.splice(index, 1);
 };
 
-MovieStore.prototype.getAll = function() {
+MovieStore.prototype.getAll = function () {
   return _movies;
 };
+MovieStore.prototype.emitChange = function (){
+  this.emitChange('change');
+};
 
-/***
-* TODO : IMPLEMENT THIS CODE IN NEXT COMMIT
-*
-*var MovieStore = objectAssign({}, EventEmitter.prototype, {
-*  addChangeListener: function(callback) {
-*   this.on('change', callback);
-*  },
-*  removeChangeListener: function(callback) {
-*    this.removeListener('change', callback);
-*  },
-*  getAll: function(){
-*    return _movies;
-*  },
-*  emitChange: function() {
-*    this.emit('change')
-*  }
-*});
-*/
+MovieStore.prototype.addActionListener = function(action, callback) {
+  this.on(action, callback);
+};
+
+MovieStore.prototype.removeActionListener = function(action, callback) {
+  this.removeListener(action, callback);
+
+
+  // Register callback with AppDispatcher
+  AppDispatcher.register(function (payload) {
+    var action = payload.action; // this is our action from handleViewAction
+
+    switch(action.actionType) {
+
+      // Respond to MOVIE_ADDED action
+      case MovieConstants.MOVIE_ADDED:
+        addMovie(action.movie);
+        break;
+      // Respond to MOVIE_DELETED action
+      case MovieConstants.MOVIE_DELETED:
+        removeMovie(action.index);
+      break;
+
+      default:
+        return true;
+    }
+
+    // If action was responded to, emit change event
+    ProductStore.emitChange();
+
+    return true;
+
+  });
+
+};

@@ -9,10 +9,10 @@ MovieActions.prototype.add = function(movie) {
     movie: movie
   });
 };
-MovieActions.prototype.delete = function(movie) {
+MovieActions.prototype.delete = function(index) {
   AppDispatcher.handleAction({
     actionType: AppConstants.MOVIE_DELETED,
-    movie: movie
+    index: index
   });
 };
 MovieActions.prototype.change = function(movie) {

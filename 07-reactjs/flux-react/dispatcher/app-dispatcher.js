@@ -7,4 +7,4 @@ AppDispatcher.prototype.handleAction = function(action) {
     action: action
   })
 };
-module.exports = new AppDispatcher();
+module.exports = AppDispatcher();
