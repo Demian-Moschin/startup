@@ -1,4 +1,4 @@
-var ButtonComponent = require('./components/button');
+var ButtonComponent = require('../components/button.js');
 var React = require('react');
 
 var NewMovie = React.createClass({
@@ -43,6 +43,7 @@ var NewMovie = React.createClass({
             <input {...this.getInputProps()} id="inputTextMovieDirector" placeholder="Director" />
             <input {...this.getInputProps()} id="inputTextMovieDuration" placeholder="Duration" />
           </div>
+          <ButtonComponent />
         </form>
       </div>
     );

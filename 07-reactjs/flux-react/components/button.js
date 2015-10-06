@@ -6,12 +6,16 @@ var ButtonComponent = React.createClass({
     return{
         className: 'btn btn-default',
         type: 'button'
-      }
+    }
+  },
+
+  createMovie: function () {
+    alert('button clicked');
   },
 
   render: function () {
     return (
-      <button  {...this.getButtonProps()}>Create Movie</button>
+      <button  {...this.getButtonProps()} onClick={this.createMovie}>Create Movie</button>
     )
   }
 
