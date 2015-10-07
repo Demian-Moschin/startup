@@ -1,13 +1,13 @@
 <h2>Here, we'll create a new movie..: </h2>
 
-<form class="form-inline" role="form" ng-controller="MovieController as movieCtrl">
+<form class="form-inline" role="form"  ng-submit="MovieController.addMovie()" >
   <div class="form-group">
-    <label for="movie-text">Movie name:</label>
-    <input type="text" class="form-control" id="movie-text">
+    <label for="movie-text">Movie title:</label>
+    <input id="inputTxtTitle" type="text" class="form-control" ng-model="movieTitle" required>
   </div>
   <div class="form-group">
     <label for="movie-director">Movie Director:</label>
-    <input type="text" class="form-control" id="movie-director">
+    <input id="inputTxtDirector" type="text" class="form-control" ng-model="movieDirector" required>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
-</form>
+</form> 

@@ -16,9 +16,10 @@
     <div class="jumbotron text-center">
       <h1>This is the movie app you wanted!</h1>
     </div>
-
-    <new-movie></new-movie>
-    <movie-list></movie-list>
+    <movies ng-controller="MovieController as movieCtrl">
+      <new-movie></new-movie>
+      <movie-list></movie-list>
+    </movies>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script type="text/javascript" src="./scripts/app.js"></script>

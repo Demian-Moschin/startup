@@ -1,4 +1,4 @@
 [
-	{"title":"Tile one","duration":1},
-	{"title":"Title two","duration":2.14}
+	{"title":"Tile one","director":"John"},
+	{"title":"Title two","director": "Nicholas"}
 ]
