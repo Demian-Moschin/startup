@@ -1,0 +1,22 @@
+<h2 class="sub-header">Movie List..: </h2>
+<div class="table-responsive">
+  <table class="table table-striped" >
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Director</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="movie in movieCtrl.movies">
+        <td>{{movie.title}}</td>
+        <td>{{movie.director}}</td>
+        <td>
+          <button type="button" class="btn btn-default btn-sm" ng-click="movieCtrl.removeMovie($index)">
+           <span class="glyphicon glyphicon-remove-circle"></span> 
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
