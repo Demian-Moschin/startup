@@ -14,7 +14,7 @@ var MovieListView= React.createClass({
 
   renderList: function () {
     return (
-      <MovieList  />
+      <MovieListComponent  />
     );
   }
 
