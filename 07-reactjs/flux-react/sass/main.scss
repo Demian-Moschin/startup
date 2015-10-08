@@ -14,15 +14,18 @@ body {
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: #F9F9F9;
+    background-color: rgba(8,80,4,0.4);
+}
+
+td {
+    background-color:rgba(8,90,4,0.4);
+}
+
+.container {
+    background: linear-gradient(to right, #5C9E1A , blue);
 }
 
 #mount-point {
     height: 100%;
 }
 
-@import "partials/grid";
-@import "../components/main";
-@import "../views/main-view";
-@import "../views/product-creation-view";
-@import "../views/product-list-view";

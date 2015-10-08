@@ -2,23 +2,31 @@ var React = require('react');
 
 var MovieListComponent = React.createClass({
 
-  getUnorderedListProps: function () {
-    return{
-        className: 'list-group'
-    }
-  },
-
-  getListItemsProps: function () {
-    return{
-        className: 'list-group'
-    }
-  },
-  
   render: function () {
+
     return (
-      <ul {...this.getUnorderedListProps()} >
-        <li {...this.getListItemsProps()} >testing</li>
-      </ul>
+    <div className="table-responsive">
+      <table className="table table-striped" >
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Director</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>
+              <button type="button" className="btn btn-default btn-sm" >
+               <span className="glyphicon glyphicon-remove-circle"></span> 
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     )
   }
 

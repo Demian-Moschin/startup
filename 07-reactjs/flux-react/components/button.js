@@ -4,19 +4,17 @@ var ButtonComponent = React.createClass({
 
   getButtonProps: function () {
     return{
-        className: 'btn btn-default',
-        type: 'button'
+        className: 'btn btn-default btn-sm',
+        type: 'submit'
     }
-  },
-
-  createMovie: function () {
-    alert('button clicked');
   },
 
   render: function () {
     return (
-      <button  {...this.getButtonProps()} onClick={this.createMovie}>Create Movie</button>
-    )
+      <button {...this.getButtonProps()}>
+       <span className="glyphicon glyphicon-ok-circle"></span> 
+      </button>
+      )
   }
 
 });
