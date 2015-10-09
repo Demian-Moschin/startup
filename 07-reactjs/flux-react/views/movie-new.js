@@ -6,9 +6,10 @@ var NewMovie = React.createClass({
 
   render: function () {
     return (
-      <h2>New Movies</h2>
-      <MovieNew />
-
+      <div>
+        <h2>New Movies</h2>
+        <MovieNewComponent />
+      </div>  
     );
   }
 });

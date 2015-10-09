@@ -1,4 +1,5 @@
 var React = require('react');
+var ButtonComponent = require('./button.js');
 
 var MovieNewComponent = React.createClass({
 
@@ -11,7 +12,7 @@ var MovieNewComponent = React.createClass({
       className: 'form-control',
       type: 'text',
       required: 'required',
-      value: this.value
+      value : ''
     }
   },
 
