@@ -1,7 +1,7 @@
-var AppDispatcher = require('./dispatcher/app-dispatcher');
-var MovieConstants = require('./constants/app-constants');
+var actions = require('../actions/movie-store-actions');
 var EventEmitter = require('events').EventEmitter;
 var inherits = require('inherits');
+var _ = require('lodash'); //Array manager library
 
 var MovieStore = function() {
   this.state = this.getInitialState();
@@ -11,23 +11,32 @@ inherits(MovieStore, EventEmitter);
 
 MovieStore.prototype.getInitialState = function () {
   return {
-    _movies: []
+    movies: []
   };
 };
 
 MovieStore.prototype.addMovie = function (movie) {
-  _movies.list.push(movie);
+  this.setState({movies: this.state.movies.concat([movie])});
 };
 
-MovieStore.prototype.removeMovie = function (index) {
-  _movies.list.splice(index, 1);
+MovieStore.prototype.deleteMovie = function (index) {
+  var splicedMovies = this.state.movies;
+  splicedMovies.splice(index, 1);
+  this.setState({movies: splicedMovies});
 };
 
 MovieStore.prototype.getAll = function () {
-  return _movies;
+  return this.state.movies;
 };
-MovieStore.prototype.emitChange = function (){
-  this.emitChange('change');
+
+MovieStore.prototype.setState = function (newState, callback) {
+    _.extend(this.state, newState);
+
+    this.emit(actions.CHANGE_EVENT);
+
+    if (callback) {
+        callback();
+    }
 };
 
 MovieStore.prototype.addActionListener = function(action, callback) {
@@ -36,32 +45,6 @@ MovieStore.prototype.addActionListener = function(action, callback) {
 
 MovieStore.prototype.removeActionListener = function(action, callback) {
   this.removeListener(action, callback);
-
-
-  // Register callback with AppDispatcher
-  AppDispatcher.register(function (payload) {
-    var action = payload.action; // this is our action from handleViewAction
-
-    switch(action.actionType) {
-
-      // Respond to MOVIE_ADDED action
-      case MovieConstants.MOVIE_ADDED:
-        addMovie(action.movie);
-        break;
-      // Respond to MOVIE_DELETED action
-      case MovieConstants.MOVIE_DELETED:
-        removeMovie(action.index);
-      break;
-
-      default:
-        return true;
-    }
-
-    // If action was responded to, emit change event
-    ProductStore.emitChange();
-
-    return true;
-
-  });
-
 };
+
+module.exports = new MovieStore();

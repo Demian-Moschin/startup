@@ -1,7 +1,6 @@
-var  MovieFormComponent = require('../components/movie-form.js');
 var React = require('react');
 
-var NewMovie = React.createClass({
+var Home = React.createClass({
   render: function () {
     return (
       <div>
@@ -9,8 +8,7 @@ var NewMovie = React.createClass({
           <div className="container">
               <div className="row">
                   <div className="col-lg-12 col-xs-12">
-                      <h2>New Movies</h2>
-                      <MovieFormComponent />
+                      <h1>Welcome to this app!</h1>
                   </div>
               </div>
           </div>
@@ -24,4 +22,4 @@ var NewMovie = React.createClass({
   
 });
 
-module.exports = NewMovie;
+module.exports = Home;

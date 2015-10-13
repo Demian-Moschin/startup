@@ -1,0 +1,37 @@
+{
+  "name": "react-flux-example",
+  "version": "1.0.0",
+  "description": "ReactJS Example application, integrated with gulp + browserify + react-router + flux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/troianoandres/react-flux-example.git"
+  },
+  "author": "Andres Troiano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/troianoandres/react-flux-example/issues"
+  },
+  "dependencies": {
+    "browser-sync": "^2.9.11",
+    "browserify": "^11.2.0",
+    "deep-equal": "^1.0.1",
+    "flux": "^2.1.1",
+    "gulp": "^3.9.0",
+    "gulp-compile-handlebars": "^0.5.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-sass": "^2.0.4",
+    "inherits": "^2.0.1",
+    "keymirror": "^0.1.1",
+    "qs": "^5.2.0",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-router": "^0.13.3",
+    "reactify": "^1.1.1",
+    "run-sequence": "^1.1.4",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
