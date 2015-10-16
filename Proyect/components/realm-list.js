@@ -5,13 +5,12 @@ var RealmList = React.createClass({
 
   getDefaultProps: function () {
     return {
-      dataCollection: {},
-      tableTitle:'List...:'
+      realmCollection:[]
     }
   },
 
   createTableBodyNodes: function () {
-    //nodes = this.props.dataCollection.map(this.renderRows);
+    //var nodes = this.props.realmCollection.realms.map(this.renderRows);
     //return nodes;
   },
 
@@ -38,7 +37,7 @@ var RealmList = React.createClass({
   render: function () {
     return (
       <div className="table-responsive">
-        {React.DOM.h2(null, this.props.tableTitle)}
+        <h2>Realms status</h2>
         <table className="table table-striped" >
           <thead>
             {this.createTableDataHeaders()}

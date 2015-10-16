@@ -17,7 +17,11 @@ gulp.task('sass', function () {
     return bundle.pipe(concat('style.css')).pipe(gulp.dest('build/css/'));
 });
 
+gulp.task('sources', function () {
 
+    return gulp.src(['./images/**/*'])
+        .pipe(gulp.dest('build/images'));
+});
 
 gulp.task('js', function () {
     var bundle = browserify('./index.js').transform(reactify).bundle().on('error', function (error) {
@@ -64,5 +68,5 @@ gulp.task('browser-sync', function () {
 });
 
 gulp.task('default', function (cb) {
-    run('html', 'js', 'sass', 'browser-sync', cb);
+    run('html', 'js', 'sass', 'sources', 'browser-sync', cb);
 });

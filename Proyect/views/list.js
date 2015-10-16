@@ -6,13 +6,13 @@ var RealmListView= React.createClass({
 
   getInitialState: function () {
     return {
-      dataCollection: {}
+      realms: []
     };
   },
 
   updateCollection: function (data) {
     this.setState({
-      dataCollection: data
+      realms: data
     });
   },
 
@@ -30,7 +30,7 @@ var RealmListView= React.createClass({
 
   getListProps: function () {
     return {
-      dataCollection: this.state.dataCollection,
+      realms: this.state.realms,
       tableTitle: 'Realms Status . . : '
     }
   },
