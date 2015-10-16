@@ -33,7 +33,6 @@ var ListView= React.createClass({
   getListProps: function () {
     return {
       dataCollection: this.state.dataCollection,
-      tableTitle: 'Guilds Status . . : '
     }
   },
 

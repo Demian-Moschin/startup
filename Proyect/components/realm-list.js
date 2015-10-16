@@ -5,20 +5,19 @@ var RealmList = React.createClass({
 
   getDefaultProps: function () {
     return {
-      realmCollection:[]
+      realmCollection: []
     }
   },
-
   createTableBodyNodes: function () {
-    //var nodes = this.props.realmCollection.realms.map(this.renderRows);
-    //return nodes;
+    var nodes = this.props.realmCollection.map(this.renderRows);
+    return nodes;
   },
 
   renderRows: function (realm, index) {
     return (
         <tr key={index}>
             <td>{realm.name}</td>
-            <td>{realm.status}</td>
+            <td>{realm.status.toString()}</td>
             <td>{realm.battlegroup}</td>
         </tr>
     );

@@ -22,6 +22,9 @@ var MasterNav = React.createClass({
                       <ul className="nav navbar-nav">
                           <li><Link to="guilds">Guilds</Link></li>
                       </ul>
+                      <ul className="nav navbar-nav">
+                        <li><Link to="characterInfo">Character Info</Link></li>
+                      </ul>
                     </div>
                   </div>
               </nav>
