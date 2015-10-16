@@ -1,0 +1,56 @@
+var React = require('react');
+var Router = require('react-router');
+
+var RealmList = React.createClass({
+
+  getDefaultProps: function () {
+    return {
+      dataCollection: {},
+      tableTitle:'List...:'
+    }
+  },
+
+  createTableBodyNodes: function () {
+    //nodes = this.props.dataCollection.map(this.renderRows);
+    //return nodes;
+  },
+
+  renderRows: function (realm, index) {
+    return (
+        <tr key={index}>
+            <td>{realm.name}</td>
+            <td>{realm.status}</td>
+            <td>{realm.battlegroup}</td>
+        </tr>
+    );
+  },
+
+  createTableDataHeaders: function () {
+    return (
+        <tr>
+          <th>Realm Name</th>
+          <th>Status</th>
+          <th>Battle Group</th>
+        </tr>
+    );
+  },
+
+  render: function () {
+    return (
+      <div className="table-responsive">
+        {React.DOM.h2(null, this.props.tableTitle)}
+        <table className="table table-striped" >
+          <thead>
+            {this.createTableDataHeaders()}
+          </thead>
+          <tbody>
+            {this.createTableBodyNodes()}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+
+});
+
+module.exports = RealmList;
