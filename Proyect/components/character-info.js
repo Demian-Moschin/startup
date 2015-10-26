@@ -30,6 +30,13 @@ var CharacterInfo = React.createClass({
         );
     },
 
+    getInputCharacterProps: function () {
+      return {
+          placeholder: 'Character name',
+          id: 'characterNameInput'
+      }
+    },
+
     render: function () {
         return (
             <div className="table-responsive">
@@ -48,8 +55,8 @@ var CharacterInfo = React.createClass({
                 <div className="col-md-4 pull-left">
                     <form className="form-inline">
                         <div className="form-group">
-                            <label for="inputCharacterName">Name</label>
-                            <Input id="inputCharacterName" />
+                            <label htmlFor="inputCharacterName">Name</label>
+                            <Input {...this.getInputCharacterProps} />
                         </div>
                     </form>
                 </div>
