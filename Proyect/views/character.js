@@ -6,22 +6,21 @@ var CharacterComponent = require('../components/character-info.js');
 var CharacterView= React.createClass({
 
     getInitialState: function () {
-        return this.getCharacterInfo();
+        return ({
+            characterInfo: [],
+            infoVisible: true
+        });
+        //API.getCharacterProfile(this.updateCollection);
     },
 
     getCharacterInfo: function () {
-
+        return true;
     },
 
     updateCollection: function (data) {
         this.setState({
             characterInfo: data
         });
-        console.log(this.state.characterInfo);
-    },
-
-    componentDidMount: function () {
-       API.getCharacterProfile(this.updateCollection);
     },
 
     render: function () {
@@ -34,14 +33,14 @@ var CharacterView= React.createClass({
 
     getListProps: function () {
         return {
-            characterInfo: this.state.characterInfo
+            characterInfo: this.state.characterInfo,
+            infoVisible: this.state.infoVisible
         }
     },
 
     renderList: function () {
         return (
             <CharacterComponent {...this.getListProps()} />
-
         )
     },
 

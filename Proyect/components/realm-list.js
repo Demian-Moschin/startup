@@ -34,10 +34,16 @@ var RealmList = React.createClass({
   },
 
   render: function () {
+    var classList = {
+      'table-responsive': true,
+      'table table-striped': true
+    };
+
+
     return (
-      <div className="table-responsive">
+      <div className={classList}>
         <h2>Realms status</h2>
-        <table className="table table-striped" >
+        <table>
           <thead>
             {this.createTableDataHeaders()}
           </thead>

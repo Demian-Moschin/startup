@@ -5,7 +5,9 @@ var _ = require('lodash');
 var Input = React.createClass({
 
   getInitialState: function () {
-    var initialState = {};
+    var initialState = {
+        value: ''
+    };
 
     if ((_.isUndefined(this.props.value))) {
         initialState.value = this.props.defaultValue
@@ -23,11 +25,18 @@ var Input = React.createClass({
     return {
         className: 'form-control',
         type: 'text',
-        required:'required',
+        required: true,
         placeholder: this.props.placeholder,
-        ref: this.props.ref
+        ref: this.props.ref,
+        onChange: this.handleChange
     };
-  }
+  },
+
+    handleChange: function ( ) {
+        return(
+            this.props.handleInputChange
+        );
+    }
 });
 
 module.exports = Input;

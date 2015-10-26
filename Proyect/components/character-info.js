@@ -1,14 +1,9 @@
 var React = require('react');
 var Router = require('react-router');
 var Input = require('./input.js');
+var classNames = require('classnames');
 
 var CharacterInfo = React.createClass({
-
-    getDefaultProps: function () {
-        return {
-            characterInfo: []
-        }
-    },
 
     renderRows: function () {
         return (
@@ -33,13 +28,20 @@ var CharacterInfo = React.createClass({
     getInputCharacterProps: function () {
       return {
           placeholder: 'Character name',
-          id: 'characterNameInput'
+          ref: 'characterNameInput',
+          onChange: this.handleInputChange()
       }
     },
 
     render: function () {
+
+        var infoClass = classNames({
+           display: (this.props.infoVisible? 'hidden': 'block'),
+           'table-responsive': true
+        });
+
         return (
-            <div className="table-responsive">
+            <div className= {infoClass}>
                 <h2>Character Info .. : </h2>
                 <div className="col-md-8 pull-right">
                     <table className="table table-striped" >
@@ -56,13 +58,17 @@ var CharacterInfo = React.createClass({
                     <form className="form-inline">
                         <div className="form-group">
                             <label htmlFor="inputCharacterName">Name</label>
-                            <Input {...this.getInputCharacterProps} />
+                            <Input {...this.getInputCharacterProps}  />
                         </div>
                     </form>
                 </div>
 
             </div>
-        )
+        );
+    },
+
+    handleInputChange: function () {
+        console.log('handled input changed') ;
     }
 
 });
