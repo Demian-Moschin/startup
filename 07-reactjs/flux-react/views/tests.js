@@ -25,10 +25,11 @@ var Tests = React.createClass({
 
     handleInputChange: function () {
         var txt = this.refs.txtInput.getDOMNode().value;
-
         this.setState({
             lblText: txt
         });
+
+        console.log(txt);
     },
 
     handleClick: function () {
