@@ -1,8 +1,11 @@
 var React = require('react');
 var _ = require('lodash');
+var classNames = require('classnames');
 
 // Component
 var Input = React.createClass({
+
+
 
   getInitialState: function () {
     var initialState = {};
@@ -14,20 +17,22 @@ var Input = React.createClass({
   },
 
   render: function () {
-    return (
-        <input {...this.getProps()} />
+    var inputClass = classNames (
+      {
+          'form-control' : true,
+          type: 'text',
+          required: true,
+          placeholder: this.props.placeholder,
+          ref: this.props.ref,
+          'input-text': true
+      }
     );
-  },
 
-  getProps: function () {
-    return {
-        className: 'form-control',
-        type: 'text',
-        required:'required',
-        placeholder: this.props.placeholder,
-        ref: this.props.ref
-    };
+    return (
+        <input className={inputClass} onChange={this.props.onChange}/>
+    );
   }
+
 });
 
 module.exports = Input;
