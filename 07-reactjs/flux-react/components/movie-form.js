@@ -7,7 +7,7 @@ var Input = require('./input.js');
 var MovieFormComponent = React.createClass({
 
   save: function () {
-    objMovie = {
+    var objMovie = {
       title: this.refs.inputTextMovieTitle.getDOMNode().value,
       duration: this.refs.inputTextMovieDuration.getDOMNode().value,
       director: this.refs.inputTextMovieDirector.getDOMNode().value
@@ -39,11 +39,15 @@ var MovieFormComponent = React.createClass({
 
   getFormProps: function () {
     return {
-      className: 'form-inline',
       onSubmit: this.handleSubmit
     }
   },
 
+  frmClass: function () {
+    return {
+      'form-inline': true
+    }
+  },
   handleSubmit: function (event) {
     event.preventDefault();
     console.log(' en  button-small formsubmit');
@@ -62,16 +66,20 @@ var MovieFormComponent = React.createClass({
       spamClass: 'glyphicon glyphicon-ok-circle',
       type:"submit"
     } 
+  },
 
+  inputOnChange: function () {
+    console.log('');
+    console.log('helloggg');
   },
 
   render: function () {
     return (
       <div>
-        <form {...this.getFormProps()}>
+        <form className={this.frmClass} {...this.getFormProps()}>
           <FormGroupComponent>
             <label htmlFor="movie-text">Movie title:</label>
-            <Input {...this.getInputTitleProps()} />
+            <Input {...this.getInputTitleProps()} onChange ={this.inputOnChange}/>
           </FormGroupComponent>   
           <FormGroupComponent>
             <label htmlFor="movie-text">Movie Director:</label>

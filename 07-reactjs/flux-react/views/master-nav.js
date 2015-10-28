@@ -19,6 +19,7 @@ var MasterNav = React.createClass({
                       <ul className="nav navbar-nav">
                           <li><Link to="list">MovieList</Link></li>
                           <li><Link to="new">MovieNew</Link></li>
+                          <li><Link to="tests">Tests</Link></li>
                       </ul>
                     </div>
                   </div>

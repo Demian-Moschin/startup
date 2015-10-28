@@ -8,6 +8,7 @@ module.exports = (function () {
     var MovieList = require('./views/movie-list');
     var MovieNew = require('./views/movie-new');
     var Home = require('./views/home');
+    var Tests = require('./views/tests');
 
     var ModuleRouter = function () {
         this.routes = (
@@ -16,6 +17,7 @@ module.exports = (function () {
             <Route name="home" handler={Home} path="/home"></Route>
             <Route name="list" handler={MovieList} path="/list"></Route>
             <Route name="new" handler={MovieNew} path="/new"></Route>
+            <Route name="tests" handler={Tests} path="/tests"></Route>
           </Route>
 
         );
