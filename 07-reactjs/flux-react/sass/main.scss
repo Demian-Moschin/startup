@@ -1,0 +1,41 @@
+@import "partials/variables";
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(8,80,4,0.4);
+}
+
+td {
+    background-color:rgba(8,90,4,0.4);
+}
+
+/* text and headings */
+h2 { color: #393939; font-weight: bold; font-size: 28px; letter-spacing: -1px; }
+h3 { color: #393939; font-weight: bold; font-size: 16px; }
+h4 { color: #727272; font-size: 11px; text-transform: uppercase; }
+
+.container {
+    background: linear-gradient(to right, #5C9E1A , black);
+}
+
+
+.input-text {
+    width: 400px;
+}
+
+#mount-point {
+    height: 100%;
+}
+
