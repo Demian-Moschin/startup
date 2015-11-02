@@ -28,15 +28,10 @@ var Input = React.createClass({
         required: true,
         placeholder: this.props.placeholder,
         ref: this.props.ref,
-        onChange: this.handleChange
+        onChange: this.props.onChange
     };
-  },
+  }
 
-    handleChange: function ( ) {
-        return(
-            this.props.handleInputChange
-        );
-    }
 });
 
 module.exports = Input;

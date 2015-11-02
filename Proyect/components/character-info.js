@@ -2,8 +2,15 @@ var React = require('react');
 var Router = require('react-router');
 var Input = require('./input.js');
 var classNames = require('classnames');
+var Button = require('./button-small');
 
 var CharacterInfo = React.createClass({
+
+    getInitialState: function () {
+        return {
+            lblCharacterName: ''
+        }
+    },
 
     renderRows: function () {
         return (
@@ -25,12 +32,23 @@ var CharacterInfo = React.createClass({
         );
     },
 
+    getSearchButtonProps: function () {
+        return true;
+    },
+
     getInputCharacterProps: function () {
-      return {
+      return ({
           placeholder: 'Character name',
           ref: 'characterNameInput',
-          onChange: this.handleInputChange()
-      }
+          onChange: this.handleInputChange
+      });
+    },
+
+    handleInputChange: function () {
+        var txt = this.refs.characterNameInput.getDOMNode().value;
+        this.setState ({
+            lblCharacterName: txt
+        });
     },
 
     render: function () {
@@ -42,11 +60,15 @@ var CharacterInfo = React.createClass({
 
         return (
             <div className= {infoClass}>
-                <h2>Character Info .. : </h2>
+                <header>
+                    <h3>Character Info .. : </h3>
+                </header>
+
                 <div className="col-md-8 pull-right">
+                    {this.state.lblCharacterName}
                     <table className="table table-striped" >
                         <thead>
-                            {this.createTableDataHeaders}
+                            {this.createTableDataHeaders()}
                         </thead>
                         <tbody>
                             {this.createTableBodyNodes}
@@ -58,17 +80,14 @@ var CharacterInfo = React.createClass({
                     <form className="form-inline">
                         <div className="form-group">
                             <label htmlFor="inputCharacterName">Name</label>
-                            <Input {...this.getInputCharacterProps}  />
+                            <Input {...this.getInputCharacterProps()}  />
+                            <Button {...this.getSearchButtonProps()} />
                         </div>
                     </form>
                 </div>
 
             </div>
         );
-    },
-
-    handleInputChange: function () {
-        console.log('handled input changed') ;
     }
 
 });

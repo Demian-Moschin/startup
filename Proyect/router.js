@@ -12,13 +12,13 @@ module.exports = (function () {
 
     var ModuleRouter = function () {
         this.routes = (
-          <Route handler={MasterNav} path="/" name="app">
-            <DefaultRoute  handler={Home} />
-            <Route name="home" handler={Home} path="/home"></Route>
-            <Route name="realmStatus" handler={List} path="/list"></Route>
-            <Route name="guilds" handler={Guilds} path="/guilds"></Route>
-            <Route name="characterInfo" handler={CharacterInfo} path="/characterInfo"></Route>
-          </Route>
+              <Route handler={MasterNav} path="/" name="app">
+                <DefaultRoute  handler={Home} />
+                <Route name="home" handler={Home} path="/home"></Route>
+                <Route name="realmStatus" handler={List} path="/list"></Route>
+                <Route name="guilds" handler={Guilds} path="/guilds"></Route>
+                <Route name="characterInfo" handler={CharacterInfo} path="/characterInfo"></Route>
+              </Route>
 
         );
     };
