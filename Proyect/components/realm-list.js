@@ -45,8 +45,7 @@ var RealmList = React.createClass({
         <h2>Realms status</h2>
         <table>
           <thead>
-            {this.createTableDataHeaders()}
-          </thead>
+            {this.createTableDataHeaders()}          </thead>
           <tbody>
             {this.createTableBodyNodes()}
           </tbody>

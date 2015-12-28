@@ -4,37 +4,32 @@ var React = require('react');
 var ButtonComponent = React.createClass({
 
     propTypes: {
-        className: React.PropTypes.string,
-        type: React.PropTypes.string,
+        className: React.PropTypes.string.isRequired,
+        type: React.PropTypes.string.isRequired,
         spanClass: React.PropTypes.string
     },
-
-    getDefaultProps: function () {
-        return this.getProps;
-    },
-
     getButtonProps: function () {
         return {
-            className: 'btn btn-default btn-sm',
-            type: 'button'
+            className: this.props.className,
+            type: this.props.type,
+            onClick: this.props.onClick
         };
     },
 
-    getSpanProps: function () {
-        var spanClass = classNames({
-            'glyphicon': true,
-            'glyphicon-align-left': true
-        });
-
-        return spanClass;
+    getSpanClass: function () {
+        var spanClass = {
+            'glyphicon': true
+        };
+        console.log('asdfasdfasfd');
+        return classNames(spanClass);
     },
 
     render: function () {
         return (
-            <button {...this.getButtonProps}>
-                <span className={this.getSpanProps}></span>
+            <button {...this.getButtonProps()}>
+                <span className={this.getSpanClass}></span>
             </button>
-        )
+        );
     }
 
 });

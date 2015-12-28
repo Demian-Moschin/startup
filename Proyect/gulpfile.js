@@ -25,7 +25,7 @@ gulp.task('sources', function () {
 
 gulp.task('js', function () {
     var bundle = browserify('./index.js').transform(reactify).bundle().on('error', function (error) {
-        console.log(error);
+        console.log('no se pudo load el js !!!' + error);
         this.emit('end');
     });
 

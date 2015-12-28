@@ -33,7 +33,24 @@ var CharacterInfo = React.createClass({
     },
 
     getSearchButtonProps: function () {
-        return true;
+        return ({
+            className: this.getSearchButtonClass(),
+            type: 'button',
+            onClick: this.handleBtnClick
+        });
+    },
+
+    handleBtnClick: function () {
+        alert('yea');
+    },
+    getSearchButtonClass: function () {
+        var classes = {
+            'btn': true,
+            'btn-default': true,
+            'btn-small': true
+        };
+
+        return classNames(classes);
     },
 
     getInputCharacterProps: function () {

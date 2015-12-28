@@ -19,7 +19,7 @@ var ListView= React.createClass({
   },
 
   componentDidMount: function () {
-    //API.getGuild(this.updateCollection) ;
+    API.getGuild(this.updateCollection) ;
   },
 
   render: function () {
